@@ -1,6 +1,6 @@
 # PhpBB Extension - marttiphpbb Prune Inactive Users
 
-[Topic on phpBB.com](https://www.phpbb.com/)
+[Topic on phpBB.com](https://www.phpbb.com/community/viewtopic.php?f=456&t=2479076)
 
 ## Requirements
 
