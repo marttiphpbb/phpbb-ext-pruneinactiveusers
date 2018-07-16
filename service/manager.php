@@ -10,35 +10,34 @@ namespace marttiphpbb\pruneinactiveusers\service;
 
 use phpbb\db\driver\driver_interface as db;
 use phpbb\config\config;
-use phpbb\language\language;
 use phpbb\user;
 use phpbb\log\log;
-use marttiphpbb\extrastyle\util\cnst;
+use marttiphpbb\pruneinactiveusers\util\cnst;
 
 class manager
 {
 	protected $db;
 	protected $config;
-	protected $language;
 	protected $user;
 	protected $log;
 	protected $users_table;
+	protected $phpbb_root_path;
 
 	public function __construct(
 		db $db,
 		config $config,
-		language $language,
 		user $user,
 		log $log,
-		string $users_table
+		string $users_table,
+		string $phpbb_root_path
 	)
 	{
 		$this->db = $db;
 		$this->config = $config;
-		$this->language = $language;
 		$this->user = $user;
 		$this->log = $log;
 		$this->users_table = $users_table;
+		$this->phpbb_root_path = $phpbb_root_path;
 	}
 
 	public function run()
@@ -66,9 +65,12 @@ class manager
 			return;
 		}
 
-		user_delete('retain', $user_ids, true);
+		if (!function_exists('user_delete'))
+		{
+			require_once $this->phpbb_root_path . 'includes/functions_user.php';
+		}
 
-		$this->language->add_lang('log', cnst::FOLDER);
+		user_delete('retain', $user_ids, true);
 
 		$this->log->add(
 			'admin',
