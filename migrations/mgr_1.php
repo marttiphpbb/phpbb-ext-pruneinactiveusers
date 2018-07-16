@@ -20,7 +20,8 @@ class mgr_1 extends \phpbb\db\migration\migration
 	public function update_data()
 	{
 		return [
-			['config.add', [cnst::CONFIG_DAYS, 7]],
+			['config.add', [cnst::DAYS, 7]],
+			['config.add', [cnst::LAST_RUN, 0, true]],
 
 			['module.add', [
 				'acp',

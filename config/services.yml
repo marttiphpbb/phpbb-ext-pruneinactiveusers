@@ -1,6 +1,16 @@
 services:
-    marttiphpbb.pruneinactiveusers.topiclist_listener:
-        class: marttiphpbb\pruneinactiveusers\event\topiclist_listener
+    marttiphpbb.pruneinactiveusers.cron.task.pruneinactiveusers:
+        class: marttiphpbb\pruneinactiveusers\cron\prune
+        arguments:
+            - '@config'
+            - '@marttiphpbb.pruneinactiveusers.manager'
+        calls:
+            - [set_name, [cron.task.marttiphpbb_pruneinactiveusers]]
+        tags:
+            - { name: cron.task }
+
+    marttiphpbb.pruneinactiveusers.manager:
+        class: marttiphpbb\pruneinactiveusers\service\manager
         arguments:
             - '@dbal.conn'
             - '%tables.topics%'
@@ -11,61 +21,3 @@ services:
             - '%core.php_ext%'
         tags:
             - { name: event.listener }
-
-    marttiphpbb.pruneinactiveusers.topic_listener:
-        class: marttiphpbb\pruneinactiveusers\event\topic_listener
-        arguments:
-            - '@dbal.conn'
-            - '%tables.topics%'
-            - '%tables.forums%'
-            - '@config'
-            - '@auth'
-            - '%core.root_path%'
-            - '%core.php_ext%'
-            - '@template'
-        tags:
-            - { name: event.listener }
-
-    marttiphpbb.pruneinactiveusers.main_listener:
-        class: marttiphpbb\pruneinactiveusers\event\main_listener
-        tags:
-            - { name: event.listener }
-
-    marttiphpbb.pruneinactiveusers.mcp_topic_listener:
-        class: marttiphpbb\pruneinactiveusers\event\mcp_topic_listener
-        arguments:
-            - '@dbal.conn'
-            - '%tables.topics%'
-            - '@config'
-            - '@auth'
-            - '@language'
-            - '@request'
-            - '@template'
-        tags:
-            - { name: event.listener }
-
-    marttiphpbb.pruneinactiveusers.mcp_forum_listener:
-        class: marttiphpbb\pruneinactiveusers\event\mcp_forum_listener
-        arguments:
-            - '@dbal.conn'
-            - '%tables.topics%'
-            - '%tables.forums%'
-            - '@config'
-            - '@auth'
-            - '@language'
-            - '@request'
-            - '@template'
-            - '%core.root_path%'
-            - '%core.php_ext%'
-            - '@log'
-            - '@user'
-        tags:
-            - { name: event.listener }
-
-    marttiphpbb.pruneinactiveusers.move_topic_listener:
-        class: marttiphpbb\pruneinactiveusers\event\move_topic_listener
-        arguments:
-            - '@dbal.conn'
-            - '%tables.topics%'
-        tags:
-            - { name: event.listener }            

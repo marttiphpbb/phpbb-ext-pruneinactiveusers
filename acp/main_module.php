@@ -39,12 +39,12 @@ class main_module
 						trigger_error('FORM_INVALID');
 					}
 
-					$config->set(cnst::CONFIG_DAYS, $request->variable('days', 0));
+					$config->set(cnst::DAYS, $request->variable('days', 0));
 
 					trigger_error($language->lang(cnst::L_ACP . '_SETTING_SAVED') . adm_back_link($this->u_action));
 				}
 
-				$template->assign_var('DAYS', $config[cnst::CONFIG_DAYS]);
+				$template->assign_var('DAYS', $config[cnst::DAYS]);
 
 				break;
 		}

@@ -12,7 +12,8 @@ class cnst
 	const FOLDER = 'marttiphpbb/pruneinactiveusers';
 	const ID = 'marttiphpbb_pruneinactiveusers';
 	const PREFIX = self::ID . '_';
-	const CONFIG_DAYS = self::ID . '_' . '_days';
+	const DAYS = self::ID . '_days';
+	const LAST_RUN = self::ID . '_last_run';
 	const L = 'MARTTIPHPBB_PRUNEACTIVEUSERS';
 	const L_ACP = 'ACP_' . self::L;
 	const L_MCP = 'MCP_' . self::L;
