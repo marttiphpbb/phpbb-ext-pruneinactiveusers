@@ -16,12 +16,12 @@ class main_info
 		return [
 			'filename'	=> '\marttiphpbb\pruneinactiveusers\acp\main_module',
 			'title'		=> cnst::L_ACP,
-			'modes'		=> [			
-				'select_forum'	=> [
-					'title'	=> cnst::L_ACP . '_SELECT',
+			'modes'		=> [
+				'settings'	=> [
+					'title'	=> cnst::L_ACP . '_SETTINGS',
 					'auth'	=> 'ext_marttiphpbb/pruneinactiveusers && acl_a_board',
 					'cat'	=> [cnst::L_ACP],
-				],			
+				],
 			],
 		];
 	}

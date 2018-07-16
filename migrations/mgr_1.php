@@ -8,7 +8,7 @@
 namespace marttiphpbb\pruneinactiveusers\migrations;
 use marttiphpbb\pruneinactiveusers\util\cnst;
 
-class v_0_1_0 extends \phpbb\db\migration\migration
+class mgr_1 extends \phpbb\db\migration\migration
 {
 	static public function depends_on()
 	{
@@ -20,7 +20,7 @@ class v_0_1_0 extends \phpbb\db\migration\migration
 	public function update_data()
 	{
 		return [
-			['config.add', [cnst::CONFIG_ARCHIVE_ID, 0]],
+			['config.add', [cnst::CONFIG_DAYS, 7]],
 
 			['module.add', [
 				'acp',
@@ -34,7 +34,7 @@ class v_0_1_0 extends \phpbb\db\migration\migration
 				[
 					'module_basename'	=> '\marttiphpbb\pruneinactiveusers\acp\main_module',
 					'modes'				=> [
-						'select_forum',
+						'settings',
 					],
 				],
 			]],

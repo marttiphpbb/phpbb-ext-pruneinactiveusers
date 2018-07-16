@@ -18,6 +18,6 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, [
 
-	'ACP_MARTTIPHPBB_PRUNEACTIVEUSERS'					=> 'Archive forum',
-	'ACP_MARTTIPHPBB_PRUNEACTIVEUSERS_SELECT'			=> 'Select',
+	'ACP_MARTTIPHPBB_PRUNEACTIVEUSERS'					=> 'Prune Inactive Users',
+	'ACP_MARTTIPHPBB_PRUNEACTIVEUSERS_SETTINGS'			=> 'Settings',
 ]);

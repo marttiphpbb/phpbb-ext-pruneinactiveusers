@@ -18,8 +18,12 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, [
 
-	'ACP_MARTTIPHPBB_PRUNEACTIVEUSERS'						=> 'Prune Inactive Users',
-	'ACP_MARTTIPHPBB_PRUNEACTIVEUSERS_SELECT'				=> 'Select archive forum',
-	'ACP_MARTTIPHPBB_PRUNEACTIVEUSERS_EXPLAIN'				=> '',
-	'ACP_MARTTIPHPBB_PRUNEACTIVEUSERS_SETTING_SAVED'		=> 'The setting was saved.'
+	'ACP_MARTTIPHPBB_PRUNEACTIVEUSERS_SETTING_SAVED'
+		=> 'The setting was saved.',
+	'ACP_MARTTIPHPBB_PRUNEACTIVEUSERS_DAYS'
+		=> 'Days',
+	'ACP_MARTTIPHPBB_PRUNEACTIVEUSERS_DAYS_EXPLAIN'
+		=> 'Newly registered users that were never activated will be
+		deleted after this amount of days.',
+
 ]);

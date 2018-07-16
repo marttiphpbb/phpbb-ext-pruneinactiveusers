@@ -21,16 +21,16 @@ class main_module
 		$template = $phpbb_container->get('template');
 		$config = $phpbb_container->get('config');
 		$language = $phpbb_container->get('language');
-	
+
 		$language->add_lang('acp', cnst::FOLDER);
 		add_form_key(cnst::FOLDER);
 
 		switch($mode)
 		{
-			case 'select_forum':
+			case 'settings':
 
-				$this->tpl_name = 'select_forum';
-				$this->page_title = $language->lang(cnst::L_ACP . '_SELECT');
+				$this->tpl_name = 'settings';
+				$this->page_title = $language->lang(cnst::L_ACP . '_SETTINGS');
 
 				if ($request->is_set_post('submit'))
 				{
@@ -39,25 +39,13 @@ class main_module
 						trigger_error('FORM_INVALID');
 					}
 
-					$config->set(cnst::CONFIG_ARCHIVE_ID, $request->variable(cnst::CONFIG_ARCHIVE_ID, 0));				
+					$config->set(cnst::CONFIG_DAYS, $request->variable('days', 0));
 
 					trigger_error($language->lang(cnst::L_ACP . '_SETTING_SAVED') . adm_back_link($this->u_action));
 				}
 
-				$cforums = make_forum_select(false, false, false, false, true, false, true);
+				$template->assign_var('DAYS', $config[cnst::CONFIG_DAYS]);
 
-				foreach ($cforums as $forum)
-				{
-					$forum_id = $forum['forum_id'];
-
-					$template->assign_block_vars('cforums', [
-						'NAME'		=> $forum['padding'] . $forum['forum_name'],
-						'ID'		=> $forum_id,
-					]);
-				}
-
-				$template->assign_var(cnst::L . '_ID', $config[cnst::CONFIG_ARCHIVE_ID]);
-	
 				break;
 		}
 

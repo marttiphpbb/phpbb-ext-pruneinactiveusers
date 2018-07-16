@@ -1,0 +1,26 @@
+{%- extends '@marttiphpbb_pruneinactiveusers/base.html' -%}
+
+{%- block title -%}
+	{{- lang('ACP_MARTTIPHPBB_PRUNEACTIVEUSERS_SETTINGS') -}}
+{%- endblock title -%}
+
+{%- block form_content -%}
+	<fieldset>
+		<dl>
+			<dt>
+				<label for="days">
+					{{- lang('ACP_MARTTIPHPBB_PRUNEINACTIVEUSERS_DAYS') -}}
+				</label>
+				<br>
+				<span>
+					{{- lang('ACP_MARTTIPHPBB_PRUNEINACTIVEUSERS_DAYS_EXPLAIN') -}}
+				</span>
+			</dt>
+			<dd>
+				<input type="number" name="days" id="days" value="{{- DAYS -}}" min="1">
+			</dd>
+		</dl>
+	</fieldset>
+
+	{%- include '@marttiphpbb_pruneinactiveusers/include/submit_buttons.html' -%}
+{%- endblock form_content -%}
