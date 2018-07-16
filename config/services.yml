@@ -1,4 +1,11 @@
 services:
+    marttiphpbb.pruneinactiveusers.listener:
+        class: marttiphpbb\pruneinactiveusers\event\listener
+        arguments:
+            - '@language'
+        tags:
+            - { name: event.listener }
+
     marttiphpbb.pruneinactiveusers.cron.task.pruneinactiveusers:
         class: marttiphpbb\pruneinactiveusers\cron\prune
         arguments:
