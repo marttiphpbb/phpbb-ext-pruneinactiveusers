@@ -1,0 +1,9 @@
+{%- if topicrow.U_MARTTIPHPBB_PRUNEACTIVEUSERS -%}
+    <p class="marttiphpbb-pruneinactiveusers-row">
+        {{- lang('MARTTIPHPBB_PRUNEACTIVEUSERS_ARCHIVED_FROM', topicrow.U_MARTTIPHPBB_PRUNEACTIVEUSERS, topicrow.MARTTIPHPBB_PRUNEACTIVEUSERS_NAME) -}}
+    </p>
+{%- elseif searchresults.U_MARTTIPHPBB_PRUNEACTIVEUSERS -%}
+    <p class="marttiphpbb-pruneinactiveusers-row">
+        {{- lang('MARTTIPHPBB_PRUNEACTIVEUSERS_ARCHIVED_FROM', searchresults.U_MARTTIPHPBB_PRUNEACTIVEUSERS, searchresults.MARTTIPHPBB_PRUNEACTIVEUSERS_NAME) -}}
+    </p>
+{%- endif -%}
