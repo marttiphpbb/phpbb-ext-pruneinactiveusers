@@ -13,11 +13,8 @@ services:
         class: marttiphpbb\pruneinactiveusers\service\manager
         arguments:
             - '@dbal.conn'
-            - '%tables.topics%'
-            - '%tables.forums%'
             - '@config'
-            - '@auth'
-            - '%core.root_path%'
-            - '%core.php_ext%'
-        tags:
-            - { name: event.listener }
+            - '@language'
+            - '@user'
+            - '@log'
+            - '%tables.users%'

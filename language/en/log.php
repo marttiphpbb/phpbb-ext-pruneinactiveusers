@@ -18,7 +18,6 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, [
 
-	'MARTTIPHPBB_PRUNEACTIVEUSERS_ARCHIVED_FROM'	=> 'Archived from <a href="%1$s">%2$s</a>',
-	'MARTTIPHPBB_PRUNEACTIVEUSERS_QUICKMOD_RESTORE'	=> 'Restore from archive',
-	'MARTTIPHPBB_PRUNEACTIVEUSERS_QUICKMOD_ARCHIVE'	=> 'Move to archive',
+	'LOG_MARTTIPHPBB_PRUNEINACTIVEUSERS'
+		=> '<strong>Deleted inactive users (Prune Inactive Users ext)</strong><br />» %s',
 ]);

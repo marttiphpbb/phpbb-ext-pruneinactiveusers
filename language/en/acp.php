@@ -18,12 +18,11 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, [
 
-	'ACP_MARTTIPHPBB_PRUNEACTIVEUSERS_SETTING_SAVED'
+	'ACP_MARTTIPHPBB_PRUNEINACTIVEUSERS_SETTING_SAVED'
 		=> 'The setting was saved.',
-	'ACP_MARTTIPHPBB_PRUNEACTIVEUSERS_DAYS'
+	'ACP_MARTTIPHPBB_PRUNEINACTIVEUSERS_DAYS'
 		=> 'Days',
-	'ACP_MARTTIPHPBB_PRUNEACTIVEUSERS_DAYS_EXPLAIN'
+	'ACP_MARTTIPHPBB_PRUNEINACTIVEUSERS_DAYS_EXPLAIN'
 		=> 'Newly registered users that were never activated will be
 		deleted after this amount of days.',
-
 ]);

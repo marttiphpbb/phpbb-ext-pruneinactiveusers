@@ -8,6 +8,7 @@
 namespace marttiphpbb\pruneinactiveusers\cron;
 
 use phpbb\cron\task\base;
+use phpbb\config\config;
 use marttiphpbb\pruneinactiveusers\service\manager;
 use marttiphpbb\pruneinactiveusers\util\cnst;
 
