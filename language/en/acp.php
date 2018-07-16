@@ -24,5 +24,5 @@ $lang = array_merge($lang, [
 		=> 'Days',
 	'ACP_MARTTIPHPBB_PRUNEINACTIVEUSERS_DAYS_EXPLAIN'
 		=> 'Newly registered users that were never activated will be
-		deleted after this amount of days.',
+		deleted by a cron task after this amount of days.',
 ]);
